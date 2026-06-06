@@ -1,0 +1,6 @@
+[submodule "urdf-studio"]
+	path = urdf-studio
+	url = https://github.com/amtellezfernandez/urdf-studio.git
+[submodule "lerobot"]
+	path = lerobot
+	url = https://github.com/huggingface/lerobot.git

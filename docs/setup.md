@@ -45,6 +45,7 @@ conda install ffmpeg=7.1.1 -c conda-forge
 git clone https://github.com/huggingface/lerobot.git
 cd lerobot
 pip install -e ".[feetech]"
+pip install 'lerobot[viz]'  # Rerun SDK for live camera display
 ```
 
 ### Verify
@@ -164,6 +165,8 @@ Then recalibrate.
 
 ## 5. Teleoperation (Smoke Test)
 
+### Without camera
+
 ```bash
 python -m lerobot.scripts.lerobot_teleoperate \
     --robot.type=so101_follower \
@@ -182,10 +185,49 @@ python -m lerobot.scripts.lerobot_teleoperate \
 
 ---
 
-## 6. Next Steps
+## 6. Camera Setup
 
-- [ ] Set up cameras (`lerobot-find-cameras opencv`)
-- [ ] Teleoperate with cameras
+### Detect cameras
+
+```bash
+lerobot-find-cameras opencv
+```
+
+### macOS camera permissions
+
+If you get `OpenCV: not authorized to capture video`, grant camera access:
+- **System Settings → Privacy & Security → Camera** → enable Terminal
+- Or run `python -c "import cv2; cap = cv2.VideoCapture(0); print(cap.isOpened())"` to trigger the system prompt
+
+### Our cameras
+
+| Camera | Index | Resolution | Use |
+|---|---|---|---|
+| Follower onboard | 0 | 640×480 @ 30fps | Handeye (gripper-mounted) |
+| MacBook built-in | 1 | 1920×1080 @ 30fps | Not used |
+
+### Teleoperation with camera
+
+```bash
+python -m lerobot.scripts.lerobot_teleoperate \
+    --robot.type=so101_follower \
+    --robot.port=/dev/tty.usbmodem5AB01581111 \
+    --robot.id=follower_arm \
+    --robot.cameras='{handeye: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30}}' \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/tty.usbmodem5A460857481 \
+    --teleop.id=leader_arm \
+    --display_data=true
+```
+
+The `handeye` camera is mounted on the follower's gripper. `--display_data=true` opens a Rerun window showing the live camera feed alongside joint positions.
+
+---
+
+## 7. Next Steps
+
+- [x] Set up cameras
+- [x] Teleoperate with cameras
 - [ ] Record a dataset (`python -m lerobot.scripts.lerobot_record`)
 - [ ] Train a policy (ACT)
 - [ ] Deploy the trained policy
