@@ -1,0 +1,93 @@
+{
+  "codebase_version": "v3.0",
+  "robot_type": "so101_new_calib",
+  "total_episodes": 1,
+  "total_frames": 386,
+  "total_tasks": 1,
+  "chunks_size": 1000,
+  "files_size_in_mb": 0,
+  "fps": 30,
+  "splits": {
+    "train": "0:1"
+  },
+  "data_path": "data/chunk-{chunk_index:03d}/file-{file_index:03d}.parquet",
+  "video_path": "",
+  "features": {
+    "observation.state": {
+      "dtype": "float32",
+      "shape": [
+        7
+      ],
+      "names": {
+        "motors": [
+          "gripper_frame_joint",
+          "gripper",
+          "wrist_roll",
+          "wrist_flex",
+          "elbow_flex",
+          "shoulder_lift",
+          "shoulder_pan"
+        ]
+      },
+      "fps": 30
+    },
+    "action": {
+      "dtype": "float32",
+      "shape": [
+        7
+      ],
+      "names": {
+        "motors": [
+          "gripper_frame_joint",
+          "gripper",
+          "wrist_roll",
+          "wrist_flex",
+          "elbow_flex",
+          "shoulder_lift",
+          "shoulder_pan"
+        ]
+      },
+      "fps": 30
+    },
+    "episode_index": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "names": null,
+      "fps": 30
+    },
+    "frame_index": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "names": null,
+      "fps": 30
+    },
+    "timestamp": {
+      "dtype": "float32",
+      "shape": [
+        1
+      ],
+      "names": null,
+      "fps": 30
+    },
+    "index": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "names": null,
+      "fps": 30
+    },
+    "task_index": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "names": null,
+      "fps": 30
+    }
+  }
+}

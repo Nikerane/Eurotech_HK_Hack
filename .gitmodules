@@ -1,6 +1,16 @@
-[submodule "urdf-studio"]
-	path = urdf-studio
-	url = https://github.com/amtellezfernandez/urdf-studio.git
 [submodule "lerobot"]
 	path = lerobot
 	url = https://github.com/huggingface/lerobot.git
+[submodule "simu_gen"]
+	path = simu_gen
+	url = https://github.com/marinabar/simu_gen.git
+[submodule "pulsar"]
+	path = pulsar
+	url = https://github.com/rayan-elidrissi/pulsar.git
+[submodule "urdf-ops"]
+	path = urdf-ops
+	url = https://github.com/amtellezfernandez/urdf-ops.git
+[submodule "urdf-studio"]
+	path = urdf-studio
+	url = https://github.com/Nikerane/urdf-studio.git
+	branch = hkgenesis

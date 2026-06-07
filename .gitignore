@@ -1,0 +1,8 @@
+# OS junk
+.DS_Store
+
+# Local runtime convenience symlink into a submodule's node_modules
+i-love-urdf
+
+# Internal design/spec notes (not part of the submission)
+docs/superpowers/
