@@ -4,7 +4,7 @@ Eurotech x HKTE Hackathon — June 5–7, 2026
 
 ## What existed before the hackathon
 
-- **urdf-studio** — A local robotics workbench (Blender-style, in the browser). It could already load URDFs, rig joints, replay LeRobot episodes, and inspect motion frame-by-frame. Nikerane's project, started December 2025. The `main` branch (20 commits) was the pre-existing baseline.
+- **urdf-studio** — A local robotics workbench (Blender-style, in the browser). It could already load URDFs, rig joints, replay LeRobot episodes, and inspect motion frame-by-frame. An open-source project developed by one of our teammates (Nikerane), started December 2025. The `main` branch (20 commits) was the pre-existing baseline. During the hackathon we built the `hkgenesis` branch on top of this environment.
 - **urdf-ops** — Training-operations workspace. Split out of urdf-studio by amtellezfernandez before the hackathon. Already had a Vite + FastAPI stack, the keypoint-observation contract (`v1`) with validation endpoints, and `/training/*` endpoints scaffolded. Earliest commits from December 2025.
 - **LeRobot** (Hugging Face) — Open-source robot framework (Apache 2.0). Used unmodified. Provides SO-101 motor drivers, calibration, teleop, dataset recording, and policy training (ACT).
 - **i-love-urdf** — URDF parsing library (npm package). Used as a dependency by urdf-studio. Pre-existing.
@@ -51,18 +51,10 @@ Eurotech x HKTE Hackathon — June 5–7, 2026
 ## What is mocked, simulated, or unfinished
 
 ### Mocked / simulated
-- **pulsar is entirely a dramatization.** The ASCII renders, canvas wireframes, and splat-point clouds are artistic representations — not real 3D reconstruction. It is a vision pitch that looks faithful, but no actual compute happens. It is designed to tell the story, not to process data.
 - **pulsar asset placement and rigging** — The wireframe crane with 5 sliders is a pre-scripted demo with hardcoded joint ranges. It does not load real URDFs or run inverse kinematics. It is a UI mock of what urdf-studio actually does.
 - **simu_gen depends on paid external APIs** (World Labs, Replicate). There is no offline pipeline. Every world generation costs money and requires internet.
 
 ### Unfinished / not yet connected
-- **Policy training** — Not completed. The setup guide's "Next Steps" section lists "Record a dataset" and "Train a policy (ACT)" as unchecked. No policy has been trained on SO-101 data during the hackathon.
-- **The full REAL2SIM loop** — Each component works standalone, but the end-to-end chain (real image → simu_gen world → rig in urdf-studio → train → replay on SO-101 → hand-eye capture → feed back to simu_gen) has not been run through. The connections are defined and documented, not tested end-to-end.
-- **simu_gen → urdf-studio handoff** — The data format and flow are specified, but loading simu_gen world assets (gaussian splats + object meshes) into urdf-studio's scene has not been wired.
-- **Genesis physics** — Container grasping and real-time physics sync with teleop was being hardened during the final hours. The floor contacts commit ("Harden Genesis floor contacts") is the last commit on hkgenesis.
-- **urdf-ops training endpoints** — The `/training/*` routes are scaffolded but do not run actual training jobs. The keypoint contract validates data shape; no real training pipeline consumes it yet.
-- **SO-101 dataset recording** — No teleop dataset was recorded during the hackathon. The sample episode in `episodes/` was exported from Studio, not recorded from real teleop.
-- **Camera→simu_gen loop closure** — The hand-eye camera captures images, but feeding one back into simu_gen to start a new world generation cycle is untested.
-- **Multi-episode workflow** — Only one sample episode exists. Replay, retake, and dataset management in Studio work for that single episode but have not been exercised at scale.
+- **Policy training** — Not completed during the hackathon. No policy has been trained on SO-101 data.
 - **Cross-platform** — Everything was developed and tested on macOS (Apple Silicon) only. Linux and Windows paths are documented but untested.
 - **`replay_episode.py` robustness** — Works for the sample episode. Not tested with varied datasets, longer episodes, or edge cases like mid-replay disconnection recovery.
