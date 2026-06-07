@@ -5,6 +5,8 @@
 [![Hackathon](https://img.shields.io/badge/hackathon-Eurotech%20x%20HKTE-blue)](#)
 [![Made with LeRobot](https://img.shields.io/badge/built%20with-LeRobot-orange)](https://github.com/huggingface/lerobot)
 
+Hey! Check out our [website](https://pulsar-robotics.com/) first ;)
+
 Rehearse the worst failure before it ever happens. Ports are getting faster and more automated. When something physical goes wrong — a crane drops a container, an AGV clips a vessel — it is rare, but it is expensive and dangerous. You cannot practice those failures live. So from **one image of a scene**, we build a **digital twin** you can break safely: a physics sim where you rig the moving parts, run a robot policy, and rehearse the failure in software instead of on the dock. The same loop also runs on a real tabletop **SO-101** robot arm, so what you train in sim plays back on real hardware.
 
 ![REAL2SIM brief](pulsar/screenshots/intro.png)
