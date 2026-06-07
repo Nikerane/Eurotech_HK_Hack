@@ -5,6 +5,7 @@ Eurotech x HKTE Hackathon — June 5–7, 2026
 ## What existed before the hackathon
 
 - **urdf-studio** — A local robotics workbench (Blender-style, in the browser). It could already load URDFs, rig joints, replay LeRobot episodes, and inspect motion frame-by-frame. Nikerane's project, started December 2025. The `main` branch (20 commits) was the pre-existing baseline.
+- **urdf-ops** — Training-operations workspace. Split out of urdf-studio by amtellezfernandez before the hackathon. Already had a Vite + FastAPI stack, the keypoint-observation contract (`v1`) with validation endpoints, and `/training/*` endpoints scaffolded. Earliest commits from December 2025.
 - **LeRobot** (Hugging Face) — Open-source robot framework (Apache 2.0). Used unmodified. Provides SO-101 motor drivers, calibration, teleop, dataset recording, and policy training (ACT).
 - **i-love-urdf** — URDF parsing library (npm package). Used as a dependency by urdf-studio. Pre-existing.
 - **SO-101 robot arms** — Physical hardware (two arms: leader + follower with gripper). Pre-purchased, assembled, and motor IDs configured before the hackathon.
@@ -13,7 +14,6 @@ Eurotech x HKTE Hackathon — June 5–7, 2026
 
 - **pulsar** — Interactive storyboard / vision pitch for the 8-stage REAL2SIM pipeline. Built from scratch by rayan-elidrissi. Pure frontend (HTML + React loaded from CDN), no backend. Walks a viewer through: capture → clean plate → backdrop → splat field → asset placement → rig/DOF → handoff.
 - **simu_gen** — Image-to-3D-world generator. Built from scratch by marinabar. A VLM-driven pipeline that takes one photo, segments objects, builds a gaussian-splat background (via World Labs API), and generates textured 3D meshes (via Replicate API). Comes with a Three.js + Rapier physics viewer.
-- **urdf-ops** — Training-operations workspace. Split out of urdf-studio by amtellezfernandez. Defines a keypoint-observation contract (`v1`) with validation endpoints. Scaffolds `/training/*` endpoints for policy training jobs. Has its own Vite + FastAPI stack.
 - **HK cargo world** (urdf-studio `hkgenesis` branch) — ~22 commits on top of urdf-studio main. Adds: a Hong Kong port cargo scene with grabbable containers, Genesis physics simulation for the SO-101, leader teleop synced to Genesis, SO-101 camera POV fixes, dataset export aligned with LeRobot v3 format, and browser state recovery.
 - **replay_episode.py** — Glue script that takes a Studio-exported LeRobot v3 episode and plays it on the real SO-101 follower arm. Handles radians→degrees conversion and virtual joint filtering.
 - **docs/** — All architecture and component documentation (6 docs + README).
@@ -26,6 +26,7 @@ Eurotech x HKTE Hackathon — June 5–7, 2026
 | Asset | Source | License | Role |
 |---|---|---|---|
 | urdf-studio (`main` branch) | Nikerane's project | Proprietary (all rights reserved) | Core workbench |
+| urdf-ops | amtellezfernandez/urdf-ops | AGPL-3.0 | Training-operations workspace |
 | LeRobot v0.5.2 | huggingface/lerobot | Apache 2.0 | Robot drivers + training |
 | i-love-urdf | npm package | — | URDF parsing |
 | World Labs API | worldlabs.ai | Paid API | Gaussian splat generation (simu_gen) |
