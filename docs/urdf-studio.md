@@ -77,6 +77,17 @@ If URDF Ops dependencies already exist, setup skips the install and prints `URDF
 
 Use `npm run start` for normal work. The others are for specific cases.
 
+> **In this repo, point Studio at urdf-ops.** Studio looks for the training
+> workspace at the sibling `../urdf-ops`, but that lookup may not resolve here.
+> Pass the path explicitly:
+>
+> ```bash
+> cd urdf-studio
+> URDF_OPS_ROOT="$(pwd)/../urdf-ops" npm run start
+> ```
+>
+> An absolute path works too, e.g. `URDF_OPS_ROOT=/Users/you/Eurotech_HK_Hack/urdf-ops npm run start`.
+
 | Command | Use for | Starts backend? | Starts URDF Ops? |
 | --- | --- | --- | --- |
 | `npm run start` | Normal local app | Yes | Yes, or reuses it |

@@ -80,10 +80,14 @@ Open `http://localhost:5173/<slug>` to view a generated world.
 ```bash
 cd urdf-studio
 npm run setup        # one time
-npm run start        # full app
+
+# In this repo urdf-ops is a sibling folder, so point Studio at it:
+URDF_OPS_ROOT="$(pwd)/../urdf-ops" npm run start
 ```
 
 Then open URDF Studio at `http://127.0.0.1:5173` and URDF Ops at `http://127.0.0.1:5174`.
+
+> Without `URDF_OPS_ROOT`, Studio may not find the training workspace. Set it to this repo's `urdf-ops` path (the absolute path also works).
 Smoke test: on 5173, click `Play Sample Motion`, then in `Episodes` click the first play button. The robot should move and the graph cursor should track it.
 
 **Drive the real arm (SO-101)** — replay a Studio episode on hardware:
