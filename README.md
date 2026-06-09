@@ -11,6 +11,11 @@ Rehearse the worst failure before it ever happens. Ports are getting faster and 
 
 ![REAL2SIM brief](pulsar/screenshots/intro.png)
 
+## Videos
+
+- [Technical & business walkthrough](https://www.youtube.com/watch?v=NiE9HQxel-s) — full explainer of the pipeline and the business model.
+- [Short](https://www.youtube.com/shorts/Fjz9ONZeaYE) — quick 60-second overview.
+
 ## The loop
 
 ```mermaid
