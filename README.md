@@ -13,8 +13,8 @@ Rehearse the worst failure before it ever happens. Ports are getting faster and 
 
 ## Videos
 
-- [Technical & business walkthrough](https://www.youtube.com/watch?v=NiE9HQxel-s) — full explainer of the pipeline and the business model.
-- [Short](https://www.youtube.com/shorts/Fjz9ONZeaYE) — quick 60-second overview.
+- [Business walkthrough](https://www.youtube.com/watch?v=NiE9HQxel-s) — the problem, the market, and the business model.
+- [Technical walkthrough](https://www.youtube.com/shorts/Fjz9ONZeaYE) — how the pipeline works.
 
 ## The loop
 
